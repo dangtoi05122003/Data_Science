@@ -48,16 +48,6 @@ class VnExpress():
                 print(f"Error {name}: {e}")
         return topic_list
 
-    def scroll(self, pause_time=2, max_scroll=3):
-        previous = self.driver.execute_script("return document.body.scrollHeight")
-        for _ in range(max_scroll):
-            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            sleep(pause_time)
-            current = self.driver.execute_script("return document.body.scrollHeight")
-            if current == previous:
-                break
-            previous = current
-
     def Information(self, article):
         title, link, description = "", "", ""
         try:
@@ -95,8 +85,8 @@ class VnExpress():
         for name, link, subtopic_link, subtopic_name in topic_list:
             print(f"\n{name} / {subtopic_name} : {subtopic_link}")
             self.driver.get(subtopic_link)
-            self.scroll(pause_time=2, max_scroll=3)
             try:
+                sleep(2)
                 articles = self.driver.find_elements(By.CSS_SELECTOR, "article.item-news, article.article-item, article.article-new")
                 if not articles:
                     print("Error articles")
@@ -110,7 +100,6 @@ class VnExpress():
                     try:
                         Search = self.collection.find_one({"title": data["title"],"topic": name,"subtopic": subtopic_name})
                         if Search:
-                            print(f"Data duplication: {data['title']}")
                             continue
                         detail_content = self.detail(data["url"])
                         data["content"] = detail_content["text"]
