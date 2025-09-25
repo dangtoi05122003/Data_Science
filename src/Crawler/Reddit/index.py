@@ -22,7 +22,7 @@ class Redit:
         self.subreddit_names = "+".join(subreddits)
         return self.subreddit_names
     def subcredit(self, group):
-        for submission in self.redit.subreddit(group).hot(limit=10):
+        for submission in self.redit.subreddit(group).hot(limit=100):
             title = submission.title
             author = submission.author.name
             link = f"https://www.reddit.com{submission.permalink}"
