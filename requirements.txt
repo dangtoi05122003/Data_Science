@@ -1,0 +1,7 @@
+pymongo
+selenium
+pandas
+praw
+fasttext-wheel
+scikit-learn
+numpy<2.0
