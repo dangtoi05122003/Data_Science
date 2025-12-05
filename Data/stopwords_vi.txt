@@ -1,6 +1,5 @@
 a lô
 a ha
-ai
 ai ai
 ai nấy
 ai đó
@@ -811,7 +810,6 @@ mở nước
 mở ra
 mợ
 mức
-nay
 ngay
 ngay bây giờ
 ngay cả
@@ -1383,7 +1381,6 @@ thốt nhiên
 thốt nói
 thốt thôi
 thộc
-ty
 thời gian
 thời gian sử dụng
 thời gian tính
